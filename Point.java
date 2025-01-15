@@ -34,15 +34,20 @@ public class Point{
     }
 
     public boolean isCollinear(Point p1, Point p2){
-        if ((p2.getX()-p1.getX())==0 || (p1.getX()-x)==0){
-            throw new IllegalArgumentException("undefined slope");
-        }
+        if ((p2.getX()-p1.getX())!=0 || (p1.getX()-x)!=0){
         double m = (p2.getY()-p1.getY())/(p2.getX()-p1.getX());
         double n = (p1.getY()-y)/(p1.getX()-x);
         if (m==n){
             return true;
         }else{
             return false;
+        }
+        }else{
+            if (p2.getX()-p1.getX()==0 && p1.getX()-x==0){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 }
